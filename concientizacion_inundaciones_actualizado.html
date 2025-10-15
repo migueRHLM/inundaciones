@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concientización sobre Inundaciones y Contaminación</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f0f8ff; color: #333; }
+    img { max-width: 100%; height: auto; border-radius: 8px; }
+    header, footer { background: #e0f2ff; padding: 20px; text-align: center; }
+    h1 { margin: 0; }
+    section { padding: 20px; max-width: 1000px; margin: auto; }
+    .card { background: #fff; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    ul { margin: 10px 0; padding-left: 20px; }
+    button { padding: 10px 15px; margin-top: 10px; cursor: pointer; border: none; background: #0077b6; color: #fff; border-radius: 5px; }
+    button:hover { background: #005f87; }
+    .checklist-container { display: none; background: rgba(0,0,0,0.6); position: fixed; top: 0; left: 0; width: 100%; height: 100%; align-items: center; justify-content: center; }
+    .checklist { background: white; padding: 20px; border-radius: 10px; width: 300px; }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.4em; }
+      h2 { font-size: 1.2em; }
+      section { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Concientízate: Inundaciones y Contaminación Climática</h1>
+    <p>Acciones para reducir riesgos y proteger el medio ambiente.</p>
+    <button onclick="mostrarChecklist()">Checklist Rápida</button>
+  </header>
+
+  <section>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Flood_example.jpg" alt="Inundación">
+    </div>
+    <div class="card">
+      <h2>¿Por qué suceden más inundaciones?</h2>
+      <p>Las lluvias extremas, el bloqueo de drenajes y el cambio climático aumentan las inundaciones.</p>
+    </div>
+    <div class="card">
+      <h2>Contaminación y clima</h2>
+      <p>La contaminación altera el ciclo del agua y aumenta eventos extremos como tormentas.</p>
+    </div>
+    <div class="card">
+      <h2>Impacto humano</h2>
+      <p>Las inundaciones afectan hogares, salud y economía, especialmente en zonas vulnerables.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Acciones Individuales</h2>
+    <ul>
+      <li>No tirar basura en calles ni ríos.</li>
+      <li>Limpiar drenajes en el hogar.</li>
+      <li>Usar menos automóvil.</li>
+      <li>Separar y reciclar residuos.</li>
+      <li>Ahorrar energía.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Antes / Durante / Después</h2>
+    <div class="card">
+      <h3>Antes</h3>
+      <p>Prepara documentos, kit de emergencia y conoce rutas de evacuación.</p>
+    </div>
+    <div class="card">
+      <h3>Durante</h3>
+      <p>No cruces corrientes de agua y sigue indicaciones oficiales.</p>
+    </div>
+    <div class="card">
+      <h3>Después</h3>
+      <p>Evita agua contaminada y reporta daños.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Conciencia y Acción — Educación para un futuro seguro.</p>
+  </footer>
+
+  <div class="checklist-container" id="modalChecklist">
+    <div class="checklist">
+      <h3>Checklist de Prevención</h3>
+      <ul>
+        <li>Limpiar canaletas</li>
+        <li>No tirar basura</li>
+        <li>Evitar quemas</li>
+        <li>Participar en limpiezas</li>
+      </ul>
+      <button onclick="descargarChecklist()">Descargar</button>
+      <button onclick="cerrarChecklist()">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    function mostrarChecklist() { document.getElementById('modalChecklist').style.display = 'flex'; }
+    function cerrarChecklist() { document.getElementById('modalChecklist').style.display = 'none'; }
+    function descargarChecklist() {
+      const contenido = 'Checklist de prevención:\n1. Limpiar canaletas\n2. No tirar basura\n3. Evitar quemas\n4. Participar en limpiezas';
+      const blob = new Blob([contenido], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'checklist_prevencion.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
